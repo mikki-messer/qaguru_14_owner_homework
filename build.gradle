@@ -13,7 +13,8 @@ dependencies {
     testImplementation "com.codeborne:selenide:6.3.5",
             "org.junit.jupiter:junit-jupiter:5.8.2",
             "org.slf4j:slf4j-simple:1.7.36",
-            "org.aeonbits.owner:owner:1.0.4"
+            "org.aeonbits.owner:owner:1.0.4",
+            "org.assertj:assertj-core:3.22.0"
 }
 
 tasks.withType(JavaCompile) {
@@ -30,4 +31,22 @@ tasks.withType(Test) {
             exceptionFormat "short"
         }
     }
+}
+
+task propfiletest(type: Test){
+    useJUnitPlatform{
+        includeTags "propFileTest"
+    }
+}
+
+task sysproptest(type: Test){
+    useJUnitPlatform{
+        includeTags "sysPropTest"
+    }
+
+task webtest(type: Test){
+    useJUnitPlatform{
+        includeTags "webTest"
+    }
+}
 }
